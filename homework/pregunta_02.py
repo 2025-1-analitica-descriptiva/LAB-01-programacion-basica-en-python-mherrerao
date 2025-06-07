@@ -7,7 +7,28 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_02():
-    """
+    data_csv = 'files/input/data.csv'
+    contador = {}
+
+    with open(data_csv, 'r', encoding='utf-8') as data:
+        for linea in data:
+            columnas = linea.strip().split('\t')
+            letra = columnas[0]  
+
+            if letra in contador:
+                contador[letra] += 1
+            else:
+                contador[letra] = 1
+
+    resultado = sorted(contador.items())
+
+    return resultado
+
+resultado = pregunta_02()
+print("Rta/")
+print(resultado)
+
+"""
     Retorne la cantidad de registros por cada letra de la primera columna como
     la lista de tuplas (letra, cantidad), ordendas alfabéticamente.
 
